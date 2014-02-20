@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+      
+    <h:head>
+        <title>Cities Impacts Assessment Tool</title>
+    </h:head>      
+    <p:panel id="panel" header="Cities Impacts Assessment Tool: Report">  
+		<p:accordionPanel>  
+    		<p:tab title="Primer">  
+        		<h:panelGrid columns="2" cellpadding="10">  
+            		<p:graphicImage value="resources/images/climate.jpg" />  
+            		<h:outputText  
+               	 		value="This report has been prepared based upon your input of:&lt;br /&gt;
+               	 		City: #{inputBean.city}&lt;br /&gt;
+               	 		State: #{inputBean.state}&lt;br /&gt;
+               	 		Demographic concern: #{inputBean.demo}&lt;br /&gt;
+               	 		Climate concern: #{inputBean.concern}&lt;br /&gt;&lt;br /&gt;
+               	 		You are in Climate Division: #{processBean.stateName} #{processBean.climateDivisionName}&lt;br /&gt;&lt;br /&gt;
+               	 		Introductory Description of Climate Divisions&lt;br /&gt;&lt;br /&gt;
+               	 		What are Climatic Divisions?&lt;br /&gt;&lt;br /&gt;
+            	    	The National Oceanic and Atmospheric Administration (NOAA) categorizes
+                	 	historical climate observations into regional zones called Climatic Divisions.
+                 		Across the U.S. side of the Great Lakes basin, these divisions generally follow county boundaries,
+                 		typically grouping 5-10 counties of similar climate. The climate divisional database was originally designed
+                 		to monitor climatic variation and was most applicable to regional hydrology and agriculture.
+                 		They continue to be used nationally for monitoring the departure of the current seasonal climate from the long-term average.&lt;br /&gt;&lt;br /&gt;
+						Why do we use them?&lt;br /&gt;&lt;br /&gt;
+						Historical climatic divisional data is based on actual observations and provide an anchor for discussing past and
+						probable future climate changes. They represent areas small enough to be geographically tangible while being large
+						enough to include a number of observations and represent a statistically sound record. While they often include numerous,
+					  	varied microclimates within their boundary, they describe approximately the smallest scale at which many statements about
+				  		climate change can be made with acceptable confidence.&lt;br /&gt;&lt;br /&gt;
+						How do we use them?&lt;br /&gt;&lt;br /&gt;
+						We use the climatic divisions to provide subregional context for changes in climate at the seasonal and annual scale.
+						It is often the case that individual observing stations see trends that are not indicative of the surrounding area.
+						The climatic divisional data can help provide a broader perspective of changes in the local climate.
+					 	By comparing the records of climatic divisions throughout the Great Lakes basin, similarities and differences in
+					  	historical climate trends can help identify with parts of the region are more likely to face certain impacts from climate
+					   	change." escape="false" />  
+        		</h:panelGrid>  
+    		</p:tab>
+    			<p:tab title="Climatology">  
+    				<p:tabView> 
+   	 		 			<p:tab title ="Historical">
+   	 		 				<p:tabView>
+   	 		 					<p:tab title="Page 1">
+        							<h:panelGrid columns="2" cellpadding="10">  
+            							<p:graphicImage value="#{reportBean.imageHistory}" /> 
+        							</h:panelGrid>  
+        						</p:tab>
+        						<p:tab title="Page 2">
+        						<h:panelGrid columns="2" cellpadding="10">  
+            							<p:graphicImage value="#{reportBean.imageHistory1}" /> 
+        							</h:panelGrid>  
+        						</p:tab>
+        					</p:tabView>
+    					</p:tab> 
+    					<p:tab title="Annual">
+    						<p:tabView>
+    							<p:tab title = "Temperature">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{reportBean.imageTemp}" />
+    								</h:panelGrid>
+    							</p:tab>
+    							<p:tab title = "Precipitation">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{reportBean.imagePrecip}"/>
+    								</h:panelGrid>
+    							</p:tab>
+    						</p:tabView>
+    					</p:tab>
+       					<p:tab title="Spring">
+    						<p:tabView>
+    							<p:tab title = "Temperature">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{reportBean.imageSpringTemp}" />
+    								</h:panelGrid>
+    							</p:tab>
+    							<p:tab title = "Precipitation">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{reportBean.imageSpringPrecip}"/>
+    								</h:panelGrid>
+    							</p:tab>
+    						</p:tabView>
+    					</p:tab>
+      					<p:tab title="Summer">
+    						<p:tabView>
+    							<p:tab title = "Temperature">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{reportBean.imageSummerTemp}" />
+    								</h:panelGrid>
+    							</p:tab>
+    							<p:tab title = "Precipitation">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{reportBean.imageSummerPrecip}"/>
+    								</h:panelGrid>
+    							</p:tab>
+    						</p:tabView>
+    					</p:tab>
+      					<p:tab title="Fall">
+    						<p:tabView>
+    							<p:tab title = "Temperature">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{reportBean.imageFallTemp}" />
+    								</h:panelGrid>
+    							</p:tab>
+    							<p:tab title = "Precipitation">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{reportBean.imageFallPrecip}"/>
+    								</h:panelGrid>
+    							</p:tab>
+    						</p:tabView>
+    					</p:tab>
+       					<p:tab title="Winter">
+    						<p:tabView>
+    							<p:tab title = "Temperature">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{reportBean.imageWinterTemp}" />
+    								</h:panelGrid>
+    							</p:tab>
+    							<p:tab title = "Precipitation">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{reportBean.imageWinterPrecip}"/>
+    								</h:panelGrid>
+    							</p:tab>
+    						</p:tabView>
+    					</p:tab>
+    				</p:tabView>	
+    		</p:tab> 
+    		<p:tab title="Climate Peers">  
+    				<p:tabView> 
+    					<p:tab title="Annual">
+    						<p:tabView>
+    							<p:tab title = "Peers">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<h:outputText value="#{reportBean.analog}" escape="false" />
+    								</h:panelGrid>
+    							</p:tab>
+    							<p:tab title = "Map">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{processBean.annualStream}"/>
+    								</h:panelGrid>
+    							</p:tab>
+    						</p:tabView>
+    					</p:tab>
+       					<p:tab title="Spring">
+    						<p:tabView>
+    							<p:tab title = "Peers">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<h:outputText value="#{reportBean.analogSpring}" escape="false" />
+    								</h:panelGrid>
+    							</p:tab>
+    							<p:tab title = "Map">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{processBean.springStream}"/>
+    								</h:panelGrid>
+    							</p:tab>
+    						</p:tabView>
+    					</p:tab>
+      					<p:tab title="Summer">
+    						<p:tabView>
+    							<p:tab title = "Peers">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<h:outputText value="#{reportBean.analogSummer}" escape="false" />
+    								</h:panelGrid>
+    							</p:tab>
+    							<p:tab title = "Map">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{processBean.summerStream}"/>
+    								</h:panelGrid>
+    							</p:tab>
+    						</p:tabView>
+    					</p:tab>
+      					<p:tab title="Fall">
+    						<p:tabView>
+    							<p:tab title = "Peers">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<h:outputText value="#{reportBean.analogFall}" escape="false"/>
+    								</h:panelGrid>
+    							</p:tab>
+    							<p:tab title = "Map">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{processBean.fallStream}"/>
+    								</h:panelGrid>
+    							</p:tab>
+    						</p:tabView>
+    					</p:tab>
+       					<p:tab title="Winter">
+    						<p:tabView>
+    							<p:tab title = "Peers">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<h:outputText value="#{reportBean.analogWinter}" escape="false" />
+    								</h:panelGrid>
+    							</p:tab>
+    							<p:tab title = "Map">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{processBean.winterStream}"/>
+    								</h:panelGrid>
+    							</p:tab>
+    						</p:tabView>
+    					</p:tab>
+    				</p:tabView>
+    			</p:tab>
+    			<p:tab title="Demographics">  
+    				<p:tabView> 
+    					<p:tab title = "Your city">
+    						<h:panelGrid columns="2" cellpadding="10">
+								<h:outputText value="#{reportBean.demographic}" escape="false" />
+							</h:panelGrid>
+    					</p:tab>
+       					<p:tab title = "Climate Peers">
+    						<p:tabView>
+    							<p:tab title = "Annual">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<h:outputText value="#{reportBean.demographicAnalog}" escape="false" />
+    								</h:panelGrid>
+    							</p:tab>
+    						</p:tabView>
+    					</p:tab>
+    				</p:tabView>
+    			</p:tab>
+    			<p:tab title="Strategies">  
+    				<p:tabView> 
+    					<p:tab title = "Your vulnerabilies">
+    						<h:panelGrid columns="2" cellpadding="10">
+								<h:outputText value="#{reportBean.strategies}" escape="false" />
+							</h:panelGrid>
+    					</p:tab>
+       					<p:tab title = "Climate Peers">
+    						<p:tabView>
+    							<p:tab title = "Your concerns">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<h:outputText value="#{reportBean.strategies2}" escape="false" />
+    								</h:panelGrid>
+    							</p:tab>
+    						</p:tabView>
+    					</p:tab>
+    				</p:tabView>
+    			</p:tab>
+    			<p:tab title="Climate Maps">  
+    				<p:tabView> 
+    					<p:tab title="Temperature">
+    						<p:tabView>
+    							<p:tab title = "Observed 1951 - 1980">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<h:graphicImage value="#{reportBean.image3}" />
+    								</h:panelGrid>
+    							</p:tab>
+    							<p:tab title = "Observed 1981 - 2010">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{reportBean.image4}"/>
+    								</h:panelGrid>
+    							</p:tab>
+    							<p:tab title = "Observed Change">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{reportBean.image5}"/>
+    								</h:panelGrid>
+    							</p:tab>
+    						</p:tabView>
+    					</p:tab>
+    					<p:tab title="Precipitation">
+    						<p:tabView>
+    							<p:tab title = "Observed 1951 - 1980">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<h:graphicImage value="#{reportBean.image6}" />
+    								</h:panelGrid>
+    							</p:tab>
+    							<p:tab title = "Observed 1981 - 2010">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{reportBean.image7}"/>
+    								</h:panelGrid>
+    							</p:tab>
+    							<p:tab title = "Observed Change">
+    								<h:panelGrid colums="2" cellpadding="10">
+    									<p:graphicImage value="#{reportBean.image8}"/>
+    								</h:panelGrid>
+    							</p:tab>
+    						</p:tabView>
+    					</p:tab>
+    				</p:tabView>
+    			</p:tab>
+		</p:accordionPanel>
+	</p:panel>  
+</html>

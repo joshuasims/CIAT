@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+ 
+    <h:head>
+    	<title>Cities Impacts Assessment Tool</title>
+    </h:head>
+    <h:form>
+    	<p:panel id="panel" header="Cities Impacts Assessment Tool: Confirmation">
+    		<p:messages id="msgs" />
+   	    	<h:graphicImage value="resources/images/climate.jpg" />
+    	
+   		 	<h:panelGrid columns="1" cellpadding="10">
+    			<h:outputText value="City: #{inputBean.city}" />
+    			<h:outputText value="State: #{inputBean.state}" />
+    			<h:outputText value="Climate Concern: #{inputBean.concern}" />
+    			<h:outputText value="Demographic concern: #{inputBean.demo}" />
+    			<h:outputText value="Name: #{inputBean.name}" />
+    			<h:outputText value="Email: #{inputBean.email}" />
+    		</h:panelGrid>
+    		<h:commandButton id ="confirmation" value="Confirm" action="#{controlBean.controlMethod}">
+    			<f:ajax execute="panel" render="panel"/>
+    		</h:commandButton>
+    	</p:panel>
+    </h:form>
+    
+    <p:ajaxStatus style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">  
+    	<f:facet name="start">  
+        	<p:graphicImage value="resources/images/load.gif" />  
+    	</f:facet>  
+  
+		 <f:facet name="complete">  
+      		 <h:outputText value="" />  
+    		</f:facet>  
+	</p:ajaxStatus>  	
+</html>

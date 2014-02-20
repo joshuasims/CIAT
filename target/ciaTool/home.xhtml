@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+      
+    <h:head>
+        <title>Cities Impacts Assessment Tool</title>
+    </h:head>
+    		
+    
+    <p:panel id="panel" header="Cities Impacts Assessment Tool: Input">
+    	<h:graphicImage value="resources/images/climate.jpg" />
+    	<h:form>
+    		<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+    	   		<h:outputText value="State :"></h:outputText>
+    	   		<p:selectOneMenu id="state" value="#{inputBean.state}">
+    	   			<f:selectItem itemValue="#{null}" itemLabel="-- select one --"/>
+		   			<f:selectItems value="#{inputBean.stateList}"/>
+		   			<f:ajax listener="#{dataBean.queryCityList}" render="cities" execute="@this" />	
+    	   		</p:selectOneMenu>
+    	   		<h:outputText value="City :"></h:outputText>
+    	    	<p:selectOneMenu id="cities" value="#{inputBean.city}">
+    	    		<f:selectItem itemValue="#{null}" itemLabel="-- select one --" />
+		   			<f:selectItems value="#{dataBean.cityList}"/>
+    	   		</p:selectOneMenu>
+
+    	   		<h:outputText value="Climate Concern :"></h:outputText>
+    	   		<p:selectOneMenu id="concern" value="#{inputBean.concern}"
+    	   			required="true" requiredMessage="Select a climate concern">
+    	   			<f:selectItems value="#{inputBean.concernList}"></f:selectItems>
+    	   		</p:selectOneMenu>
+    	   		<h:outputText value="Demographic Concern :"></h:outputText>
+    	   		<p:selectOneMenu id="demo" value="#{inputBean.demo}"
+    	   			required="true" requiredMessage="Select a demographic concern">
+    	   			<f:selectItems value="#{inputBean.demoList}"></f:selectItems>
+    	   		</p:selectOneMenu>  	   		
+    	   		<h:outputText value="Name :"></h:outputText>
+    	   		<p:inputText value="#{inputBean.name}"></p:inputText>
+    	   		<h:outputText value="Email :"></h:outputText>
+    	   		<p:inputText value="#{inputBean.email}"></p:inputText>
+    	   		<h:commandButton value="Submit" action="confirm"></h:commandButton>
+    	   	</h:panelGrid>
+    	</h:form>
+    </p:panel>
+</html>
+
